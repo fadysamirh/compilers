@@ -1,0 +1,65 @@
+package csen1002.main.task4;
+
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Queue;
+import java.util.Set;
+import java.util.Stack;
+/**
+ * Write your info here
+ * 
+ * @name John Smith
+ * @id 43-0234
+ * @labNumber 07
+ */
+public class FDFA {
+	/**
+	 * FDFA constructor
+	 * 
+	 * @param description is the string describing a FDFA
+	 */
+	ArrayList <State> states;
+	Set <Integer> acceptStates;
+	Stack <State> stack;
+	Queue <State> queue;
+	public FDFA(String description) {
+		// TODO Write Your Code Here
+		states = new ArrayList<State>();
+		stack= new Stack<State>();
+//		queue= new Queue<State>();
+		// Split the string on '#'
+		String[] splitedHashString = description.split("#");
+		for(int i =0;i<splitedHashString.length;i++) {
+			String[] splitedCommaString=splitedHashString[i].split(",");
+			states.set(Integer.parseInt(splitedCommaString[0]), new State(Integer.parseInt(splitedCommaString[0],Integer.parseInt(splitedCommaString[1],Integer.parseInt(splitedCommaString[2],Integer.parseInt(splitedCommaString[3]));
+		}
+	}
+	
+	/**
+	 * Returns a string of actions.
+	 * 
+	 * @param input is the string to simulate by the FDFA.
+	 * @return string of actions.
+	 */
+	public String run(String input) {
+		// TODO Write Your Code Here
+		return null;
+	}
+	
+	
+	public class State{
+		int state;
+		int zeroTransition;
+		int oneTransition;
+		String stateString;
+		public State(int state, int zeroTransition,int oneTransition,String stateString) {
+			this.state=state;
+			this.zeroTransition=zeroTransition;
+			this.oneTransition=oneTransition;
+			this.stateString=stateString;
+		}
+	}
+}
+

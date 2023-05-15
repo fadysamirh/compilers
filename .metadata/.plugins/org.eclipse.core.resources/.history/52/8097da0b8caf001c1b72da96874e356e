@@ -1,0 +1,30 @@
+package csen1002.main.task4;
+
+/**
+ * Write your info here
+ * 
+ * @name John Smith
+ * @id 43-0234
+ * @labNumber 07
+ */
+public class FDFA {
+	/**
+	 * FDFA constructor
+	 * 
+	 * @param description is the string describing a FDFA
+	 */
+	public FDFA(String description) {
+		// TODO Write Your Code Here
+	}
+
+	/**
+	 * Returns a string of actions.
+	 * 
+	 * @param input is the string to simulate by the FDFA.
+	 * @return string of actions.
+	 */
+	public String run(String input) {
+		// TODO Write Your Code Here
+		return null;
+	}
+}

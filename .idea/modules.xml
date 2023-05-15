@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Compiler Task 1/Compiler Task 1.iml" filepath="$PROJECT_DIR$/Compiler Task 1/Compiler Task 1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Compiler Task 2/Compiler Task 2.iml" filepath="$PROJECT_DIR$/Compiler Task 2/Compiler Task 2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Compiler Task 3/Compiler Task 3.iml" filepath="$PROJECT_DIR$/Compiler Task 3/Compiler Task 3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Compiler Task 5/Compiler Task 5.iml" filepath="$PROJECT_DIR$/Compiler Task 5/Compiler Task 5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Compiler Task 6/Compiler Task 6.iml" filepath="$PROJECT_DIR$/Compiler Task 6/Compiler Task 6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Compiler Task 7/Compiler Task 7.iml" filepath="$PROJECT_DIR$/Compiler Task 7/Compiler Task 7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Test/Test.iml" filepath="$PROJECT_DIR$/Test/Test.iml" />
+    </modules>
+  </component>
+</project>

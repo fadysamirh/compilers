@@ -1,0 +1,145 @@
+package csen1002.main.task6;
+
+/**
+ * Write your info here
+ * 
+ * @name John Smith
+ * @id 43-0234
+ * @labNumber 07
+ */
+
+
+public class FFCFG {
+	String [] rules;
+	String [] first;
+	String [] follow;
+	
+	/**
+	 * Constructs a CFG for which the First and Follow are to be computed
+	 * 
+	 * @param description A string representation of a CFG as specified in the task
+	 *                    description
+	 */
+	public FFCFG(String description) {
+		// TODO Auto-generated constructor stub
+		rules=description.split(";");
+		first=new String [rules.length];
+		follow=new String [rules.length];
+		for(int i=0;i<first.length;i++) {
+			first[i]="";
+		}
+		
+		for(int i=0;i<first.length;i++) {
+			String[] splitRule=rules[i].split(",");
+			for(int j=1;j<splitRule.length;j++) {
+				if(Character.isLowerCase(splitRule[j].charAt(0))&&!first[i].contains(splitRule[j].charAt(0)+"")) {
+					first[i]+=splitRule[j].charAt(0);
+				}
+			}
+		}
+		
+
+	}
+
+	/**
+	 * Calculates the First of each variable in the CFG.
+	 * 
+	 * @return A string representation of the First of each variable in the CFG,
+	 *         formatted as specified in the task description.
+	 */
+//	public String[] firstHelper(int i,int j, String[] rules, String[] first) {
+//		String [] ruleSplit=rules[i].split(",");
+//		boolean test=true;
+//		for(int l=0;l<first.length;l++) {
+//			if(first[l]=="") {
+//				test=false;
+//				break;
+//			}
+//			
+//		}
+//		if(test) {
+//			return first;
+//		}
+//		
+//		if(Character.isLowerCase(ruleSplit[j].charAt(0))) {
+//			first[i]+=ruleSplit[j].charAt(0);
+//			if(j+1==ruleSplit.length) {
+//				return firstHelper(i+1,0,rules,first);
+//			}else {
+//				return firstHelper(i,j+1,rules,first);
+//
+//			}
+//		}
+//		int k;
+//		
+//		for(k=0;k<rules.length;k++) {
+//			if(i!=k&&rules[i].charAt(0)==rules[k].charAt(0)) {
+//				break;
+//			}
+//		}
+//		String[] firstOfChar=firstHelper(k,0,rules,first);
+//		if(firstOfChar[k].contains("e")) {
+//			
+//		}else {
+//			
+//		}
+//	}
+	public String first() {
+		// TODO Auto-generated method stub
+		String [] first=new String[rules.length];
+		boolean done=false;
+		int i=0;
+		for(i=0;i<first.length;i++) {
+			String firstString="";
+			String [] ruleSplit=rules[i].split(",");
+			boolean containsEpsilon=true;
+			for(int j=1;j<ruleSplit.length;j++) {
+				if(!Character.isLowerCase(ruleSplit[j].charAt(0))) {
+					int k;
+					for(k=0;k<rules.length;k++) {
+						if(rules[k].charAt(0)==ruleSplit[j].charAt(0))
+							break;
+					}
+					
+					if(first[k].contains("e")) {
+						for(int l=0;l<first[k].length();l++) {
+							if(!first[i].contains(first[k].charAt(l)+"")&& first[k].charAt(l)!='e') {
+								first[i]+=first[k].charAt(l);
+							}
+						}
+					
+						
+						
+					}else {
+						for(int l=0;l<first[k].length();l++) {
+							if(!first[i].contains(first[k].charAt(l)+"")) {
+								first[i]+=first[k].charAt(l);
+							}
+						}
+					}
+				}
+			}
+		}
+		for(i=0;i<first.length;i++) {
+			System.out.println(first[i]);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Calculates the Follow of each variable in the CFG.
+	 * 
+	 * @return A string representation of the Follow of each variable in the CFG,
+	 *         formatted as specified in the task description.
+	 */
+	public String follow() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public static void main(String [] args) {
+		FFCFG cfg = new FFCFG("S,aBDh;B,cA;A,bA,e;D,EF;E,g,e;F,f,e");
+		cfg.first();
+	}
+
+}

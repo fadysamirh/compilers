@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Task1PrivateTestV2" project="Compiler Task 1" tests="10" started="10" failures="0" errors="0" ignored="0">
+  <testsuite name="csen1002.tests.task1.Task1PrivateTestV2" time="0.0" displayname="Task1PrivateTestV2" uniqueid="[engine:junit-jupiter]/[class:csen1002.tests.task1.Task1PrivateTestV2]">
+    <testcase name="testDFA1T1" classname="csen1002.tests.task1.Task1PrivateTestV2" time="0.0" displayname="testDFA1T1()" uniqueid="[engine:junit-jupiter]/[class:csen1002.tests.task1.Task1PrivateTestV2]/[method:testDFA1T1()]"/>
+    <testcase name="testDFA1T2" classname="csen1002.tests.task1.Task1PrivateTestV2" time="0.0" displayname="testDFA1T2()" uniqueid="[engine:junit-jupiter]/[class:csen1002.tests.task1.Task1PrivateTestV2]/[method:testDFA1T2()]"/>
+    <testcase name="testDFA1T3" classname="csen1002.tests.task1.Task1PrivateTestV2" time="0.0" displayname="testDFA1T3()" uniqueid="[engine:junit-jupiter]/[class:csen1002.tests.task1.Task1PrivateTestV2]/[method:testDFA1T3()]"/>
+    <testcase name="testDFA1T4" classname="csen1002.tests.task1.Task1PrivateTestV2" time="0.0" displayname="testDFA1T4()" uniqueid="[engine:junit-jupiter]/[class:csen1002.tests.task1.Task1PrivateTestV2]/[method:testDFA1T4()]"/>
+    <testcase name="testDFA1T5" classname="csen1002.tests.task1.Task1PrivateTestV2" time="0.0" displayname="testDFA1T5()" uniqueid="[engine:junit-jupiter]/[class:csen1002.tests.task1.Task1PrivateTestV2]/[method:testDFA1T5()]"/>
+    <testcase name="testDFA2T1" classname="csen1002.tests.task1.Task1PrivateTestV2" time="0.0" displayname="testDFA2T1()" uniqueid="[engine:junit-jupiter]/[class:csen1002.tests.task1.Task1PrivateTestV2]/[method:testDFA2T1()]"/>
+    <testcase name="testDFA2T2" classname="csen1002.tests.task1.Task1PrivateTestV2" time="0.0" displayname="testDFA2T2()" uniqueid="[engine:junit-jupiter]/[class:csen1002.tests.task1.Task1PrivateTestV2]/[method:testDFA2T2()]"/>
+    <testcase name="testDFA2T3" classname="csen1002.tests.task1.Task1PrivateTestV2" time="0.0" displayname="testDFA2T3()" uniqueid="[engine:junit-jupiter]/[class:csen1002.tests.task1.Task1PrivateTestV2]/[method:testDFA2T3()]"/>
+    <testcase name="testDFA2T4" classname="csen1002.tests.task1.Task1PrivateTestV2" time="0.0" displayname="testDFA2T4()" uniqueid="[engine:junit-jupiter]/[class:csen1002.tests.task1.Task1PrivateTestV2]/[method:testDFA2T4()]"/>
+    <testcase name="testDFA2T5" classname="csen1002.tests.task1.Task1PrivateTestV2" time="0.0" displayname="testDFA2T5()" uniqueid="[engine:junit-jupiter]/[class:csen1002.tests.task1.Task1PrivateTestV2]/[method:testDFA2T5()]"/>
+  </testsuite>
+</testrun>

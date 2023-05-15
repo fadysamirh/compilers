@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Compiler Task 1/src/csen1002/tests/task1/Task1PrivateTestV3-1.java&apos; to &apos;Task1PrivateTestV3.java&apos;" description="Rename resource &apos;Task1PrivateTestV3-1.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/csen1002/tests/task1/Task1PrivateTestV3-1.java" name="Task1PrivateTestV3.java" stamp="1651085187969" updateReferences="true"/>
+</session>

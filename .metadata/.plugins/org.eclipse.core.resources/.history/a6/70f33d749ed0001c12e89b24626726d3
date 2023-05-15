@@ -1,0 +1,198 @@
+package csen1002.main.task6;
+
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Set;
+
+/**
+ * Write your info here
+ * 
+ * @name John Smith
+ * @id 43-0234
+ * @labNumber 07
+ */
+
+public class FFCFG {
+
+	ArrayList<String> left = new ArrayList<String>();
+	ArrayList<ArrayList<String>> right = new ArrayList<ArrayList<String>>();
+	ArrayList<ArrayList<String>> first = new ArrayList<ArrayList<String>>();
+
+	/**
+	 * Constructs a CFG for which the First and Follow are to be computed
+	 * 
+	 * @param description A string representation of a CFG as specified in the task
+	 *                    description
+	 */
+	public FFCFG(String description) {
+		// TODO Auto-generated constructor stub
+		String[] rulesSplittedBySemi = description.split(";");
+		for (int i = 0; i < rulesSplittedBySemi.length; i++) {
+			String[] currentRuleSplittedByComma = rulesSplittedBySemi[i].split(",");
+			left.add(currentRuleSplittedByComma[0]);
+			ArrayList<String> temp = new ArrayList<String>();
+			for (int j = 1; j < currentRuleSplittedByComma.length; j++) {
+				temp.add(currentRuleSplittedByComma[j]);
+			}
+
+			right.add(temp);
+			first.add(new ArrayList<String>());
+		}
+//		printArrayList(left);
+//		printDoubleArrayList(right);
+
+	}
+
+	/**
+	 * Calculates the First of each variable in the CFG.
+	 * 
+	 * @return A string representation of the First of each variable in the CFG,
+	 *         formatted as specified in the task description.
+	 */
+
+	public String first() {
+		// TODO Auto-generated method stub
+		boolean change = true;
+		while (change) {
+			change = false;
+			for (int i = 0; i < left.size(); i++) {
+				ArrayList<String> currentRights = right.get(i);
+				for (int j = 0; j < currentRights.size(); j++) {
+					String singleCurrentRightString = currentRights.get(j);
+
+					ArrayList<String> intersectionArray = new ArrayList<String>();
+					for (int k = 0; k < singleCurrentRightString.length(); k++) {
+						String currentChar = singleCurrentRightString.charAt(k) + "";
+						int getCurrentCharIndex = left.indexOf(currentChar);
+						if (k == 0) {
+							if (getCurrentCharIndex == -1) {
+								intersectionArray.add(currentChar);
+							} else {
+								intersectionArray.addAll(first.get(getCurrentCharIndex));
+							}
+						} else {
+							if (getCurrentCharIndex == -1) {
+								ArrayList<String> temp = new ArrayList<String>();
+								temp.add(currentChar);
+								intersectionArray.retainAll(temp);
+							} else {
+								intersectionArray.retainAll(first.get(getCurrentCharIndex));
+							}
+						}
+
+					}
+					if (intersectionArray.contains("e")) {
+						if (!first.get(i).contains("e")) {
+							first.get(i).add("e");
+							change = true;
+						}
+					}
+
+					for (int k = 0; k < singleCurrentRightString.length(); k++) {
+						ArrayList<String> intersectionSecondArray = new ArrayList<String>();
+						for (int l = 0; l < k + 1; l++) {
+							String currentChar = singleCurrentRightString.charAt(l) + "";
+							int getCurrentCharIndex = left.indexOf(currentChar);
+							if (l == 0) {
+								if (getCurrentCharIndex == -1) {
+									if (currentChar.equals(currentChar)) {
+										first.get(i).add(currentChar + "");
+									} else {
+										intersectionSecondArray.add(currentChar);
+									}
+								} else {
+									intersectionSecondArray.addAll(first.get(getCurrentCharIndex));
+								}
+							} else {
+								if (getCurrentCharIndex == -1) {
+									ArrayList<String> temp = new ArrayList<String>();
+									temp.add(currentChar);
+									intersectionSecondArray.retainAll(temp);
+								} else {
+									intersectionSecondArray.retainAll(first.get(getCurrentCharIndex));
+								}
+							}
+						}
+						if (intersectionSecondArray.contains("e")) {
+							System.out.println("here")
+;							ArrayList temp = new ArrayList();
+							int tempIndex = left.indexOf(singleCurrentRightString.charAt(k) + "");
+							if (tempIndex == -1) {
+								first.get(i).add(singleCurrentRightString.charAt(k) + "");
+							} else {
+								
+								temp.addAll(first.get(tempIndex));
+								temp.remove("e");
+//								printArrayList(temp);
+//								printArrayList(first.get(i));
+
+								if (!temp.isEmpty() && first.get(i).contains(temp)) {
+									first.get(i).addAll(temp);
+									change = true;
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+		String firstString = "";
+		for (int i = 0; i < first.size(); i++) {
+			Set<String> set = new HashSet<>(first.get(i));
+			ArrayList temp = new ArrayList<>(set);
+			printArrayList(temp);
+		}
+		return null;
+	}
+
+	public void printSet(Set<Character> set) {
+		for (Character s : set) {
+			System.out.print(s);
+		}
+		System.out.println();
+	}
+
+	public void printArrayList(ArrayList list) {
+		for (int i = 0; i < list.size(); i++) {
+			System.out.print(list.get(i));
+		}
+		System.out.println();
+
+	}
+
+	public void printDoubleArrayList(ArrayList<ArrayList<String>> first2) {
+		for (int i = 0; i < first2.size(); i++) {
+			for (int j = 0; j < first2.get(i).size(); j++) {
+				System.out.print(i + first2.get(i).get(j) + ", ");
+			}
+
+		}
+		System.out.println();
+
+	}
+
+	/**
+	 * Calculates the Follow of each variable in the CFG.
+	 * 
+	 * @return A string representation of the Follow of each variable in the CFG,
+	 *         formatted as specified in the task description.
+	 */
+	public String follow() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static void main(String[] args) {
+		FFCFG cfg = new FFCFG("S,aBDh;B,cA;A,bA,e;D,EF;E,g,e;F,f,e");
+//		FFCFG cfg = new FFCFG("S,yS,van;K,dSg,rw;H,uk,fHK,HwK,e;P,KPa,f");
+//		FFCFG cfg = new FFCFG("S,hUw,SUC,go;C,SlxSa,oc;U,hn,z,nSm,e");
+//		FFCFG cfg = new FFCFG("S,DajQ,QI;D,aSf,QaS,e;Q,sS,hi,e;I,IS,IsQj,z,xy");
+//		FFCFG cfg = new FFCFG("S,Rpx,Sx;R,Ds,bs;D,H,xsH,e;H,Hp,stRR,po");
+
+		cfg.first();
+	}
+
+}

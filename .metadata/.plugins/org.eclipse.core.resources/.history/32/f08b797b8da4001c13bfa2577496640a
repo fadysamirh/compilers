@@ -1,0 +1,178 @@
+package csen1002.main.task2;
+
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Set;
+
+/**
+ * Write your info here
+ * 
+ * @name John Smith
+ * @id 43-0234
+ * @labNumber 07
+ */
+public class NFA {
+	Set<Integer> states;
+	Hashtable<Integer, Set> epsilonClosureTable;
+	String[] oneTransition;
+	String[] zeroTransition;
+	String acceptState;
+
+	/**
+	 * NFA constructor
+	 * 
+	 * @param description is the string describing a NFA A string describing an NFA
+	 *                    is of the form Z#O#E#F, where Z, O, and E, respectively,
+	 *                    represent the 0-transitions, the 1-transitions, and the
+	 *                    ε-transitions. F represents the set of accept state.
+	 * 
+	 */
+
+	public NFA(String description) {
+		// TODO Write Your Code Here
+
+		// create states set
+		states = new HashSet<Integer>();
+
+		// Split the string on '#'
+		String[] splitedString = description.split("#");
+
+		// populate states set
+		for (int i = 0; i < splitedString.length; i++) {
+			String[] firstSplit = splitedString[i].split(";");
+			for (int j = 0; j < firstSplit.length; j++) {
+				String[] secondSplit = firstSplit[j].split(",");
+				for (int k = 0; k < secondSplit.length; k++) {
+					states.add(Integer.parseInt(secondSplit[k]));
+				}
+			}
+		}
+
+		// TODO account for empty states
+		zeroTransition = splitedString[0].split(";");
+
+		oneTransition = splitedString[1].split(";");
+		String epsilonTransition = splitedString[2];
+		acceptState = splitedString[3];
+
+		// split epsilon transition function to states on ';'
+		String[] splitedEpsilonTransition = epsilonTransition.split(";");
+
+		// create Epsilon Closure Table
+		epsilonClosureTable = new Hashtable<Integer, Set>();
+
+		for (Integer s : states) {
+			// create set of states of the epsilon closure table
+			Set<Integer> epsilonClosureStates = new HashSet<Integer>();
+			epsilonClosureStates.add(s);
+			for (int i = 0; i < splitedEpsilonTransition.length; i++) {
+				String[] commaSplitedEpsilonTransition = splitedEpsilonTransition[i].split(",");
+				if (Integer.parseInt(commaSplitedEpsilonTransition[0]) == s) {
+					epsilonClosureStates.add(Integer.parseInt(commaSplitedEpsilonTransition[1]));
+				}
+			}
+			epsilonClosureTable.put(s, epsilonClosureStates);
+		}
+		boolean isTableUpdated = false;
+//		for (int i = 0; i < 6; i++) {
+		
+			Enumeration<Set> values = epsilonClosureTable.elements();
+			Enumeration<Integer> keys = epsilonClosureTable.keys();
+			
+			while (values.hasMoreElements()) {
+				Set<Integer> nextValue = values.nextElement();
+				int nextKey = keys.nextElement();
+				Set<Integer> temp = new HashSet<Integer>();
+
+				for (Integer s : nextValue) {
+			
+					temp.addAll(epsilonClosureTable.get(s));
+					
+				}
+				temp.addAll(nextValue);
+
+				epsilonClosureTable.put(nextKey, temp);
+			}
+//		}
+		printHashtable(epsilonClosureTable);
+	}
+
+	public void printSet(Set<Integer> a) {
+		System.out.print('{');
+		for (Integer s : a) {
+			System.out.print(s);
+		}
+		System.out.println('}');
+
+	}
+
+	public void printHashtable(Hashtable ht) {
+		Enumeration<Set> values = ht.elements();
+		Enumeration<Set> keys = ht.keys();
+		while (values.hasMoreElements()) {
+			System.out.print(keys.nextElement());
+			printSet(values.nextElement());
+		}
+
+	}
+
+	/**
+	 * Returns true if the string is accepted by the NFA and false otherwise.
+	 * 
+	 * @param input is the string to check by the NFA.
+	 * @return if the string is accepted or not.
+	 */
+	public boolean run(String input) {
+		// TODO Write Your Code Here
+		Set<Integer> currentState = new HashSet<Integer>();
+
+		currentState.addAll(epsilonClosureTable.get(0));
+		System.out.print("Current State: " + currentState);
+
+		for (int i = 0; i < input.length(); i++) {
+			Set<Integer> tempState = new HashSet<Integer>();
+			if (input.charAt(i) == '0') {
+
+				for (Integer state : currentState) {
+
+					for (int k = 0; k < zeroTransition.length; k++) {
+						int fromTransition = Integer.parseInt(zeroTransition[k].split(",")[0]);
+						int toTransition = Integer.parseInt(zeroTransition[k].split(",")[1]);
+						if (fromTransition == state) {
+							tempState.addAll(epsilonClosureTable.get(toTransition));
+						}
+
+					}
+				}
+
+				currentState = tempState;
+
+			} else {
+
+				for (Integer state : currentState) {
+
+					for (int k = 0; k < oneTransition.length; k++) {
+						int fromTransition = Integer.parseInt(oneTransition[k].split(",")[0]);
+						int toTransition = Integer.parseInt(oneTransition[k].split(",")[1]);
+						if (fromTransition == state) {
+							tempState.addAll(epsilonClosureTable.get(toTransition));
+						}
+
+					}
+				}
+
+				currentState = tempState;
+
+			}
+		}
+//		System.out.print("Current State: "+currentState);
+		return currentState.contains(Integer.parseInt(acceptState));
+
+	}
+
+	public static void main(String[] args) {
+		NFA a = new NFA("2,3#4,5;7,8#0,1;0,7;1,2;1,4;3,6;5,6;6,1;6,7#8");
+	}
+}

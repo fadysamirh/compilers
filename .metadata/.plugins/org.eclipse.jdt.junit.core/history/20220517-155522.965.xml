@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Task7TestsV0" project="Compiler Task 7" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="csen1002.tests.task7.Task7TestsV0" time="0.006" displayname="Task7TestsV0" uniqueid="[engine:junit-jupiter]/[class:csen1002.tests.task7.Task7TestsV0]">
+    <testcase name="testLL1CFG1Parse1" classname="csen1002.tests.task7.Task7TestsV0" time="0.006" displayname="testLL1CFG1Parse1()" uniqueid="[engine:junit-jupiter]/[class:csen1002.tests.task7.Task7TestsV0]/[method:testLL1CFG1Parse1()]"/>
+  </testsuite>
+</testrun>

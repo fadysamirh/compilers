@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Task7TestsV3" project="Compiler Task 7" tests="10" started="10" failures="0" errors="0" ignored="0">
+  <testsuite name="csen1002.tests.task7.Task7TestsV3" time="0.006" displayname="Task7TestsV3" uniqueid="[engine:junit-jupiter]/[class:csen1002.tests.task7.Task7TestsV3]">
+    <testcase name="testLL1CFG1Parse1" classname="csen1002.tests.task7.Task7TestsV3" time="0.001" displayname="testLL1CFG1Parse1()" uniqueid="[engine:junit-jupiter]/[class:csen1002.tests.task7.Task7TestsV3]/[method:testLL1CFG1Parse1()]"/>
+    <testcase name="testLL1CFG1Parse2" classname="csen1002.tests.task7.Task7TestsV3" time="0.0" displayname="testLL1CFG1Parse2()" uniqueid="[engine:junit-jupiter]/[class:csen1002.tests.task7.Task7TestsV3]/[method:testLL1CFG1Parse2()]"/>
+    <testcase name="testLL1CFG1Parse3" classname="csen1002.tests.task7.Task7TestsV3" time="0.0" displayname="testLL1CFG1Parse3()" uniqueid="[engine:junit-jupiter]/[class:csen1002.tests.task7.Task7TestsV3]/[method:testLL1CFG1Parse3()]"/>
+    <testcase name="testLL1CFG1Parse4" classname="csen1002.tests.task7.Task7TestsV3" time="0.0" displayname="testLL1CFG1Parse4()" uniqueid="[engine:junit-jupiter]/[class:csen1002.tests.task7.Task7TestsV3]/[method:testLL1CFG1Parse4()]"/>
+    <testcase name="testLL1CFG1Parse5" classname="csen1002.tests.task7.Task7TestsV3" time="0.0" displayname="testLL1CFG1Parse5()" uniqueid="[engine:junit-jupiter]/[class:csen1002.tests.task7.Task7TestsV3]/[method:testLL1CFG1Parse5()]"/>
+    <testcase name="testLL1CFG2Parse1" classname="csen1002.tests.task7.Task7TestsV3" time="0.0" displayname="testLL1CFG2Parse1()" uniqueid="[engine:junit-jupiter]/[class:csen1002.tests.task7.Task7TestsV3]/[method:testLL1CFG2Parse1()]"/>
+    <testcase name="testLL1CFG2Parse2" classname="csen1002.tests.task7.Task7TestsV3" time="0.0" displayname="testLL1CFG2Parse2()" uniqueid="[engine:junit-jupiter]/[class:csen1002.tests.task7.Task7TestsV3]/[method:testLL1CFG2Parse2()]"/>
+    <testcase name="testLL1CFG2Parse3" classname="csen1002.tests.task7.Task7TestsV3" time="0.001" displayname="testLL1CFG2Parse3()" uniqueid="[engine:junit-jupiter]/[class:csen1002.tests.task7.Task7TestsV3]/[method:testLL1CFG2Parse3()]"/>
+    <testcase name="testLL1CFG2Parse4" classname="csen1002.tests.task7.Task7TestsV3" time="0.002" displayname="testLL1CFG2Parse4()" uniqueid="[engine:junit-jupiter]/[class:csen1002.tests.task7.Task7TestsV3]/[method:testLL1CFG2Parse4()]"/>
+    <testcase name="testLL1CFG2Parse5" classname="csen1002.tests.task7.Task7TestsV3" time="0.001" displayname="testLL1CFG2Parse5()" uniqueid="[engine:junit-jupiter]/[class:csen1002.tests.task7.Task7TestsV3]/[method:testLL1CFG2Parse5()]"/>
+  </testsuite>
+</testrun>
